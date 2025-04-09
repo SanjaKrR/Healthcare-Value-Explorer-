@@ -3,88 +3,97 @@
 
 
 CREATE TABLE "PlanAttributes" (
-    "PlanID" string   NOT NULL,
-    "StateCode" string   NOT NULL,
-    "IssuerID" string   NOT NULL,
-    "MarketCoverage" string   NOT NULL,
+    "PlanID" VARCHAR  NOT NULL,
+    "StateCode" VARCHAR    NOT NULL,
+    "IssuerID" VARCHAR    NOT NULL,
+    "MarketCoverage" VARCHAR    NOT NULL,
     "DentalOnlyPlan" boolean   NOT NULL,
-    "StandardComponentId" string   NULL,
-    "PlanMarketingName" string   NOT NULL,
-    "HIOSProductId" string   NOT NULL,
-    "NetworkId" string   NOT NULL,
-    "ServiceAreaId" string   NOT NULL,
-    "PlanType" string   NOT NULL,
-    "MetalLevel" string   NOT NULL,
-    "QHPNonQHPTypeId" string   NOT NULL,
-    "WellnessProgramOffered" string   NOT NULL,
-    "DiseaseManagementProgramsOffered" string   NOT NULL,
-    "EHBPercentTotalPremium" string   NOT NULL,
-    "OutOfServiceAreaCoverage" string   NOT NULL,
-    "OutOfServiceAreaCoverageDescription" string   NOT NULL,
-    "PlanVariantMarketingName" string   NOT NULL,
-    "CSRVariationType" string   NOT NULL,
-    "MedicalDrugDeductiblesIntegrated" string   NOT NULL,
-    "MedicalDrugMaximumOutofPocketIntegrated" string   NOT NULL,
-    "PlanBrochure" string   NOT NULL,
+    "StandardComponentId" VARCHAR    NULL,
+    "PlanMarketingName" VARCHAR    NOT NULL,
+    "HIOSProductId" VARCHAR    NOT NULL,
+    "NetworkId" VARCHAR    NOT NULL,
+    "ServiceAreaId" VARCHAR    NOT NULL,
+    "PlanType" VARCHAR    NOT NULL,
+    "MetalLevel" VARCHAR    NOT NULL,
+    "QHPNonQHPTypeId" VARCHAR    NOT NULL,
+    "WellnessProgramOffered" VARCHAR    NOT NULL,
+    "DiseaseManagementProgramsOffered" VARCHAR    NOT NULL,
+    "EHBPercentTotalPremium" VARCHAR   NOT NULL,
+    "OutOfServiceAreaCoverage" VARCHAR    NOT NULL,
+    "OutOfServiceAreaCoverageDescription" VARCHAR    NOT NULL,
+    "PlanVariantMarketingName" VARCHAR    NOT NULL,
+    "CSRVariationType" VARCHAR    NOT NULL,
+    "MedicalDrugDeductiblesIntegrated" VARCHAR    NOT NULL,
+    "MedicalDrugMaximumOutofPocketIntegrated" VARCHAR    NOT NULL,
+    "PlanBrochure" VARCHAR    NOT NULL,
     CONSTRAINT "pk_PlanAttributes" PRIMARY KEY (
         "PlanID"
      )
 );
+SELECT* FROM "PlanAttributes"
 
 CREATE TABLE "BenefitsCostSharing" (
-    "BCS_ID" string   NOT NULL,
-    "StateCode" string   NOT NULL,
-    "IssuerID" string   NOT NULL,
-    "StandardComonentId" string   NOT NULL,
-    "PlanID" string   NOT NULL,
-    "BenefitsID" string   NOT NULL,
-    "Exclusion" string   NOT NULL,
+    "BCS_ID" VARCHAR    NOT NULL,
+    "StateCode" VARCHAR    NOT NULL,
+    "IssuerID" VARCHAR    NOT NULL,
+    "StandardComonentId" VARCHAR    NOT NULL,
+    "PlanID" VARCHAR    NOT NULL,
+    "BenefitsID" VARCHAR    NOT NULL,
+    "Exclusion" VARCHAR    NOT NULL,
     CONSTRAINT "pk_BenefitsCostSharing" PRIMARY KEY (
         "BCS_ID"
      )
 );
+SELECT* FROM "BenefitsCostSharing"
 
 CREATE TABLE "Rates" (
     "RateID" int   NOT NULL,
-    "StateCode" string   NOT NULL,
+    "StateCode" VARCHAR    NOT NULL,
     "IssuerID" int   NOT NULL,
-    "PlanID" string   NOT NULL,
-    "IndividualRate" double   NOT NULL,
+    "PlanID" VARCHAR    NOT NULL,
+    "IndividualRate" FLOAT   NOT NULL,
     CONSTRAINT "pk_Rates" PRIMARY KEY (
         "RateID"
      )
 );
+SELECT * FROM "Rates" 
 
 CREATE TABLE "ServiceArea" (
-    "ServiceAreaID" string   NOT NULL,
-    "ServiceArea" string   NOT NULL,
-    "StateCode" string   NOT NULL,
-    "IssuerId" string   NOT NULL,
+    "ServiceAreaID" VARCHAR    NOT NULL,
+    "ServiceArea" VARCHAR    NOT NULL,
+    "StateCode" VARCHAR    NOT NULL,
+    "IssuerId" VARCHAR    NOT NULL,
     "CoverEnteireState" boolean   NOT NULL,
-    "County" string   NOT NULL,
-    "ZipCodes" string   NOT NULL,
-    "MarketCoverage" string   NOT NULL,
+    "County" VARCHAR    NOT NULL,
+    "ZipCodes" VARCHAR    NOT NULL,
+    "MarketCoverage" VARCHAR    NOT NULL,
     "DentalOnly" boolean   NOT NULL,
     CONSTRAINT "pk_ServiceArea" PRIMARY KEY (
         "ServiceAreaID"
      )
 );
 
+SELECT * FROM "ServiceArea" 
+
 CREATE TABLE "Issuer" (
-    "IssuerID" string   NOT NULL,
-    "IssuerMarketPlaceName" string   NOT NULL,
+    "IssuerID" VARCHAR    NOT NULL,
+    "IssuerMarketPlaceName" VARCHAR    NOT NULL,
     CONSTRAINT "pk_Issuer" PRIMARY KEY (
         "IssuerID"
      )
 );
 
+SELECT * FROM "Issuer" 
+
 CREATE TABLE "Benefits" (
-    "BenefitsID" string   NOT NULL,
-    "BenefitsName" string   NOT NULL,
+    "BenefitsID" VARCHAR    NOT NULL,
+    "BenefitsName" VARCHAR    NOT NULL,
     CONSTRAINT "pk_Benefits" PRIMARY KEY (
         "BenefitsID"
      )
 );
+
+SELECT * FROM "Benefits" 
 
 ALTER TABLE "PlanAttributes" ADD CONSTRAINT "fk_PlanAttributes_IssuerID" FOREIGN KEY("IssuerID")
 REFERENCES "Issuer" ("IssuerID");
