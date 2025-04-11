@@ -4,28 +4,28 @@
 
 CREATE TABLE "PlanAttributes" (
     "PlanID" VARCHAR  NOT NULL,
-    "StateCode" VARCHAR,
+    "StateCode" VARCHAR    NOT NULL,
     "IssuerID" VARCHAR    NOT NULL,
-    "MarketCoverage" VARCHAR,
-    "DentalOnlyPlan" boolean,
-    "StandardComponentId" VARCHAR,
-    "PlanMarketingName" VARCHAR,
-    "HIOSProductId" VARCHAR,
-    "NetworkId" VARCHAR,
+    "MarketCoverage" VARCHAR    NOT NULL,
+    "DentalOnlyPlan" boolean   NOT NULL,
+    "StandardComponentId" VARCHAR    NULL,
+    "PlanMarketingName" VARCHAR    NOT NULL,
+    "HIOSProductId" VARCHAR    NOT NULL,
+    "NetworkId" VARCHAR    NOT NULL,
     "ServiceAreaId" VARCHAR    NOT NULL,
-    "PlanType" VARCHAR,
-    "MetalLevel" VARCHAR,
-    "QHPNonQHPTypeId" VARCHAR,
-    "WellnessProgramOffered" VARCHAR,
-    "DiseaseManagementProgramsOffered" VARCHAR,
-    "EHBPercentTotalPremium" VARCHAR,
-    "OutOfServiceAreaCoverage" VARCHAR,
-    "OutOfServiceAreaCoverageDescription" VARCHAR,
-    "PlanVariantMarketingName" VARCHAR,
-    "CSRVariationType" VARCHAR,
-    "MedicalDrugDeductiblesIntegrated" VARCHAR,
-    "MedicalDrugMaximumOutofPocketIntegrated" VARCHAR,
-    "PlanBrochure" VARCHAR,
+    "PlanType" VARCHAR    NOT NULL,
+    "MetalLevel" VARCHAR    NOT NULL,
+    "QHPNonQHPTypeId" VARCHAR    NOT NULL,
+    "WellnessProgramOffered" VARCHAR    NOT NULL,
+    "DiseaseManagementProgramsOffered" VARCHAR    NOT NULL,
+    "EHBPercentTotalPremium" VARCHAR   NOT NULL,
+    "OutOfServiceAreaCoverage" VARCHAR    NOT NULL,
+    "OutOfServiceAreaCoverageDescription" VARCHAR    NOT NULL,
+    "PlanVariantMarketingName" VARCHAR    NOT NULL,
+    "CSRVariationType" VARCHAR    NOT NULL,
+    "MedicalDrugDeductiblesIntegrated" VARCHAR    NOT NULL,
+    "MedicalDrugMaximumOutofPocketIntegrated" VARCHAR    NOT NULL,
+    "PlanBrochure" VARCHAR    NOT NULL,
     CONSTRAINT "pk_PlanAttributes" PRIMARY KEY (
         "PlanID"
      )
@@ -34,12 +34,12 @@ SELECT* FROM "PlanAttributes"
 
 CREATE TABLE "BenefitsCostSharing" (
     "BCS_ID" VARCHAR    NOT NULL,
-    "StateCode" VARCHAR,
-    "IssuerID" VARCHAR NOT NULL,
-    "StandardComponentId" VARCHAR,
+    "StateCode" VARCHAR    NOT NULL,
+    "IssuerID" VARCHAR    NOT NULL,
+    "StandardComonentId" VARCHAR    NOT NULL,
     "PlanID" VARCHAR    NOT NULL,
     "BenefitsID" VARCHAR    NOT NULL,
-    "Exclusion" VARCHAR,
+    "Exclusion" VARCHAR    NOT NULL,
     CONSTRAINT "pk_BenefitsCostSharing" PRIMARY KEY (
         "BCS_ID"
      )
@@ -48,10 +48,10 @@ SELECT* FROM "BenefitsCostSharing"
 
 CREATE TABLE "Rates" (
     "RateID" int   NOT NULL,
-    "StateCode" VARCHAR,
-    "IssuerID" VARCHAR   NOT NULL,
+    "StateCode" VARCHAR    NOT NULL,
+    "IssuerID" int   NOT NULL,
     "PlanID" VARCHAR    NOT NULL,
-    "IndividualRate" FLOAT,
+    "IndividualRate" FLOAT   NOT NULL,
     CONSTRAINT "pk_Rates" PRIMARY KEY (
         "RateID"
      )
@@ -60,14 +60,14 @@ SELECT * FROM "Rates"
 
 CREATE TABLE "ServiceArea" (
     "ServiceAreaID" VARCHAR    NOT NULL,
-    "ServiceArea" VARCHAR,
-    "StateCode" VARCHAR,
+    "ServiceArea" VARCHAR    NOT NULL,
+    "StateCode" VARCHAR    NOT NULL,
     "IssuerId" VARCHAR    NOT NULL,
-    "CoverEntireState" boolean,
-    "County" VARCHAR,
-    "ZipCodes" VARCHAR,
-    "MarketCoverage" VARCHAR,
-    "DentalOnly" boolean,
+    "CoverEnteireState" boolean   NOT NULL,
+    "County" VARCHAR    NOT NULL,
+    "ZipCodes" VARCHAR    NOT NULL,
+    "MarketCoverage" VARCHAR    NOT NULL,
+    "DentalOnly" boolean   NOT NULL,
     CONSTRAINT "pk_ServiceArea" PRIMARY KEY (
         "ServiceAreaID"
      )
@@ -76,8 +76,8 @@ CREATE TABLE "ServiceArea" (
 SELECT * FROM "ServiceArea" 
 
 CREATE TABLE "Issuer" (
-    "IssuerID" VARCHAR  NOT NULL,
-    "IssuerMarketPlaceName" VARCHAR,
+    "IssuerID" VARCHAR    NOT NULL,
+    "IssuerMarketPlaceName" VARCHAR    NOT NULL,
     CONSTRAINT "pk_Issuer" PRIMARY KEY (
         "IssuerID"
      )
@@ -87,7 +87,7 @@ SELECT * FROM "Issuer"
 
 CREATE TABLE "Benefits" (
     "BenefitsID" VARCHAR    NOT NULL,
-    "BenefitsName" VARCHAR,
+    "BenefitsName" VARCHAR    NOT NULL,
     CONSTRAINT "pk_Benefits" PRIMARY KEY (
         "BenefitsID"
      )
