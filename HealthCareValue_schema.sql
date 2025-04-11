@@ -36,7 +36,7 @@ CREATE TABLE "BenefitsCostSharing" (
     "BCS_ID" VARCHAR    NOT NULL,
     "StateCode" VARCHAR    NOT NULL,
     "IssuerID" VARCHAR    NOT NULL,
-    "StandardComonentId" VARCHAR    NOT NULL,
+    "StandardComponentId" VARCHAR    NOT NULL,
     "PlanID" VARCHAR    NOT NULL,
     "BenefitsID" VARCHAR    NOT NULL,
     "Exclusion" VARCHAR    NOT NULL,
