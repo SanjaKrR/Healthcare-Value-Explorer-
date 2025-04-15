@@ -18,7 +18,7 @@ import getpass
 # This function prompts the user for their PostgreSQL password and returns a live database connection
 def connect_db():
     try:
-        # Prompt user for PostgreSQL password (input is hidden for security)
+        # Prompt user for PostgreSQL password (input is hidden for security
         password = getpass.getpass("postgres")
 
         # Establish a connection to the PostgreSQL database using provided credentials
