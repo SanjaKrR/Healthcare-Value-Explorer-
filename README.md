@@ -23,7 +23,7 @@ A command-line based database navigation project using **PostgreSQL, Python, and
 
 ## **Features**
 
-**Multi-Table PostgreSQL Database**: Healthcare plan data from CMS PUFs is transformed and loaded into normalized SQL tables.  
+**Multi-Table PostgreSQL Database**: Healthcare plan data from CMS Public Use File Puffs https://www.cms.gov/marketplace/resources/data/public-use-files is transformed and loaded into normalized SQL tables.  
 **ETL Pipeline**: Python scripts ingest, transform, and load CSV datasets into PostgreSQL using Pandas and SQLAlchemy.  
 **Interactive CLI Tool**: Users can search plans by state, compare average rates, and retrieve detailed plan and issuer info.  
 **Secure Database Access**: Prompts for PostgreSQL credentials at runtime using Python's `getpass`.  
@@ -49,7 +49,7 @@ A command-line based database navigation project using **PostgreSQL, Python, and
 &nbsp;&nbsp;&nbsp;&nbsp;├── issuer_etl.ipynb  
 &nbsp;&nbsp;&nbsp;&nbsp;├── planatt_etl.ipynb  
 &nbsp;&nbsp;&nbsp;&nbsp;├── rate_etl.ipynb  
-&nbsp;&nbsp;&nbsp;&nbsp;├── ec_service_area_etl.ipynb  
+&nbsp;&nbsp;&nbsp;&nbsp;├── service_area_etl.ipynb  
 &nbsp;&nbsp;&nbsp;&nbsp;└── benefits_etl.ipynb  
 
 4. Open the CLI tool script:
