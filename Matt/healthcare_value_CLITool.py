@@ -24,7 +24,7 @@ def connect_db():
         # Establish a connection to the PostgreSQL database using provided credentials
         connection = psycopg2.connect(
             host="localhost",                # Host where PostgreSQL is running
-            database="healthcare_value_db",  # Name of the database
+            database="HealthCareValue_DB1",  # Name of the database
             user="postgres",                 # SQL Database username
             password="postgres"              # SQL Database password (replace if needed)
         )
